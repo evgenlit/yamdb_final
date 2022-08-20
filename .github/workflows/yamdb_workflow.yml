@@ -59,7 +59,7 @@ jobs:
         passphrase: ${{ secrets.PASSPHRASE }}
         script: |
           sudo docker-compose stop
-          sudo docker-compose rm web --stop --force
+          sudo docker rmi $(sudo docker images -a -q)
           sudo systemctl stop nginx
           touch .env
           echo DB_ENGINE=${{ secrets.DB_ENGINE }} >> .env
