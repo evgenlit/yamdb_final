@@ -59,7 +59,8 @@ jobs:
         passphrase: ${{ secrets.PASSPHRASE }}
         script: |
           sudo docker-compose stop
-          sudo docker rmi -f
+          sudo docker-compose rm web
+          y
           sudo systemctl stop nginx
           touch .env
           echo DB_ENGINE=${{ secrets.DB_ENGINE }} >> .env
@@ -68,7 +69,7 @@ jobs:
           echo POSTGRES_PASSWORD=${{ secrets.POSTGRES_PASSWORD }} >> .env
           echo DB_HOST=${{ secrets.DB_HOST }} >> .env
           echo DB_PORT=${{ secrets.DB_PORT }} >> .env
-          sudo docker-compose up -d --build
+          sudo docker-compose up -d
           sudo docker-compose exec web python manage.py makemigrations
           sudo docker-compose exec web python manage.py migrate
           sudo docker-compose exec web python manage.py collectstatic --no-input
