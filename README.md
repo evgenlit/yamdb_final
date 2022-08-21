@@ -2,6 +2,9 @@
 
 ![Alt](https://github.com/evgenlit/yamdb_final/actions/workflows/yamdb_workflow.yml/badge.svg 'Actions Status')
 
+Учебный проект доступен по адресу: 
+* http://51.250.107.17/redoc/
+
 Для проекта настроено `Continuous Integration и Continuous Deployment`  
 При пуше в ветку `master` отрабатывают сценарии:
 1. Проверка кода на соответствие стандарту PEP8
